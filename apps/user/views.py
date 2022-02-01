@@ -21,7 +21,7 @@ class BaseLogin(APIView):
             "status": status.HTTP_401_UNAUTHORIZED,
         },
         "success": {
-            "data": {"status": status.HTTP_200_OK, "detail": None},
+            "data": {"status": status.HTTP_200_OK, "result": None},
             "status": status.HTTP_200_OK,
         },
         "not_supported": {
