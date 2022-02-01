@@ -70,6 +70,5 @@ class CustomerModel(models.Model):
             RegexValidator(
                 regex="^.{11}$", message="Length must to be 11", code="nomatch"
             )
-        ],
-        unique=True
+        ]
     )
