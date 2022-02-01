@@ -15,6 +15,18 @@
 > __I want__ to manage all generate cashbacks
 > 
 > __If__ I have permissions to do so.
+ 
+> !Rules:
+> 
+> If the total field is lower than 50, the cashback is 0
+> 
+> If the total field is between 50 and 99, the cashback is 5%
+> 
+> If the total field is between 100 and 200, the cashback is 10%
+> 
+> If the total field is greater than 200, the cashback is 15%
+> 
+> Cashback will __never__ exceed 150
 
 ## Running the project locally with Docker
 
@@ -101,6 +113,8 @@ python manage.py start
   }
 }
 ```
+
+> This token reset after 1 hour on you login.
 
 ### Cashback
 
@@ -357,7 +371,7 @@ No content
 }
 ```
 
-> !Important:
+> !Remember:
 > 
 > If the total field is lower than 50, the cashback is 0
 > 

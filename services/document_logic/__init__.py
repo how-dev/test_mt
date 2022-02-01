@@ -5,10 +5,6 @@ class BrazilianDocumentLogics:
     document = None
 
     @staticmethod
-    def format_cpf(cpf):
-        return f"{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}"
-
-    @staticmethod
     def get_digit_algorithm(cpf):
         cpf_verify = list(cpf)
         cpf_verify.reverse()

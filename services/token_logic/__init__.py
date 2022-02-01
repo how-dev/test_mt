@@ -9,10 +9,7 @@ class ResetToken:
         self.hour = hour
 
     def verify_token_age(self):
-        try:
-            token = Token.objects.get(key=self.token_key)
-        except Token.DoesNotExist:
-            token = Token.objects.create(user=self.user)
+        token = Token.objects.get_or_create(user=self.user)[0]
 
         age = abs(token.created - timezone.now()).seconds
 

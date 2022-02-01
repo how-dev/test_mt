@@ -42,3 +42,6 @@ class PurchaseSerializer(ModelSerializer):
         purchase.products.add(*products_list)
 
         return purchase
+
+    def update(self, instance, validated_data):
+        return instance

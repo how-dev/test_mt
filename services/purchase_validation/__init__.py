@@ -24,8 +24,6 @@ class PurchaseValidation(BrazilianDocumentLogics):
         for product in self.products:
             total += float(product["value"]) * product["qty"]
 
-        print(float(self.total), float(total))
-
         return float(self.total) == total
 
     def is_valid_date(self) -> bool:
