@@ -54,17 +54,24 @@ class PurchaseValidation(BrazilianDocumentLogics):
         if not self.has_error:
             total = float(self.total)
 
+            cashback = 0
+
             if total < 50.0:
-                return 0
-
-            if total >= 200.0:
-                return total * 0.15
-
-            if total >= 100.0:
-                return total * 0.1
+                return cashback
 
             if total >= 50.0:
-                return total * 0.05
+                cashback = total * 0.05
+
+            if total >= 100.0:
+                cashback = total * 0.1
+
+            if total >= 200.0:
+                cashback = total * 0.15
+
+            if cashback > 150:
+                return 150
+
+            return cashback
 
     def get_document_value(self):
         if not self.has_error:

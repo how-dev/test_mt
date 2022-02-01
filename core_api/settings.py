@@ -24,7 +24,7 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-LOCAL_APPS = ["apps.purchase", "apps.user"]
+LOCAL_APPS = ["apps.purchase", "apps.user", "personal_commands"]
 
 THIRD_APPS = ["rest_framework", "rest_framework.authtoken"]
 
