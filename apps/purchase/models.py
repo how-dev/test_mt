@@ -23,7 +23,7 @@ class ProductsModel(models.Model):
 
 
 class PurchaseModel(models.Model):
-    sold_at = models.DateTimeField(auto_now_add=True)
+    sold_at = models.DateTimeField()
 
     total = models.CharField(max_length=255)
 
