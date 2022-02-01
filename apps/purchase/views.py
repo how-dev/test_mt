@@ -16,23 +16,12 @@ class PurchaseViewSet(ModelViewSet):
         serializer.is_valid(raise_exception=True)
 
         data = serializer.validated_data
-
         data = PurchaseValidation(data)
 
-        errors = []
+        if data.has_error:
+            return Response(data.errors, status=status.HTTP_403_FORBIDDEN)
 
-        if not data.is_valid_date():
-            errors.append({"detail": "Invalid date to 'sold_at' field."})
+        # self.perform_create(serializer)
 
-        if not data.is_valid_total():
-            errors.append({"detail": "Invalid value to 'total' field."})
-
-        if not data.is_valid_document():
-            errors.append({"detail": "Invalid value to 'document' field."})
-
-        if len(errors) > 0:
-            return Response(errors, status=status.HTTP_403_FORBIDDEN)
-
-        self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        cashback = data.send_cashback()
+        return Response(cashback, status=status.HTTP_201_CREATED)

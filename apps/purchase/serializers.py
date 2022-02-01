@@ -28,21 +28,6 @@ class PurchaseSerializer(ModelSerializer):
             "products"
         )
 
-        extra_kwargs = {
-            "sold_at": {
-                "required": True
-            },
-            "customer": {
-                "required": True
-            },
-            "total": {
-                "required": True
-            },
-            "products": {
-                "required": True
-            }
-        }
-
     def create(self, validated_data):
         customer = validated_data["customer"]
         customer = CustomerModel.objects.create(**customer)
