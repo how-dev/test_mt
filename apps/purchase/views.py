@@ -21,7 +21,7 @@ class PurchaseViewSet(ModelViewSet):
         if data.has_error:
             return Response(data.errors, status=status.HTTP_403_FORBIDDEN)
 
-        # self.perform_create(serializer)
+        self.perform_create(serializer)
 
         cashback = data.send_cashback()
         return Response(cashback, status=status.HTTP_201_CREATED)
