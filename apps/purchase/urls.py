@@ -1,7 +1,8 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter
 
 from .views import PurchaseViewSet
 
-urlpatterns = [
-    path("cashback/", PurchaseViewSet.as_view({"post": "create"})),
-]
+router = DefaultRouter()
+router.register(r"cashback", PurchaseViewSet)
+
+urlpatterns = router.urls

@@ -8,7 +8,8 @@ class ProductsModel(models.Model):
         max_length=255,
         choices=(
             ("A", "A"),
-            ("B", "B")
+            ("B", "B"),
+            ("C", "C")
         )
     )
     value = models.CharField(max_length=255)
