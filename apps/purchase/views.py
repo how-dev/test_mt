@@ -31,9 +31,7 @@ class PurchaseViewSet(ModelViewSet):
         self.perform_create(serializer)
 
         cashback = data.send_cashback()
-        ReturnedData.objects.create(
-            raw_data=str(cashback)
-        )
+        ReturnedData.objects.create(raw_data=str(cashback))
         return Response(cashback, status=status.HTTP_201_CREATED)
 
     @method_decorator(cache_page(60, key_prefix="list"))

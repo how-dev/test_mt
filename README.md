@@ -31,9 +31,13 @@
 ## Running the project locally with Docker
 
 1. Create a volume called "persist_db"
-2. Create the .env file in `core_api` module according to `example.env` file
-3. Run docker-compose up --build
-4. Access the Docker's machine in another terminal with:
+2. Create the `migrations` module in all apps
+3. Create the .env file in `core_api` module according to `example.env` file
+4. Run:
+```commandline
+docker-compose up --build
+```
+5. Access the Docker's machine in another terminal with:
 
 ```commandline
 docker exec -it test_mt_api_1 /bin/bash
@@ -43,7 +47,7 @@ or (to zsh system):
 ```commandline
 docker exec -it test_mt_api_1 /bin/sh
 ```
-5. Run this commands in Docker's machine:
+6. Run this commands in Docker's machine:
 
 ```commandline
 python manage.py makemigrations

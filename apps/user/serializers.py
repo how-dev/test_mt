@@ -7,14 +7,7 @@ from .models import CustomerModel, UserModel
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
-        fields = (
-            "id",
-            "last_login",
-            "email",
-            "name",
-            "document",
-            "user_type"
-        )
+        fields = ("id", "last_login", "email", "name", "document", "user_type")
         extra_kwargs = {
             "password": {"write_only": True},
             "is_active": {"write_only": True},
@@ -25,10 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomerModel
-        fields = (
-            "document",
-            "name"
-        )
+        fields = ("document", "name")
 
 
 class LoginSerializer(serializers.Serializer):

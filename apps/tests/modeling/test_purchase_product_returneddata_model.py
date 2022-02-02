@@ -17,13 +17,18 @@ class PurchaseProductReturnedDataModelTest(TestCase):
         cls.base_purchase = PurchaseModel.objects.create(
             sold_at=datetime.now(),
             total="100.0",
-            customer=CustomerModel.objects.create(
-                name="Test",
-                document="06872098112"
-            )
+            customer=CustomerModel.objects.create(name="Test", document="06872098112"),
         )
         cls.base_returned_data = ReturnedData.objects.create(
-            raw_data=str({'createdAt': '2022-02-01T01:59:18.547Z', 'message': 'Cashback criado com sucesso!', 'id': '18', 'document': '62208311361', 'cashback': 150})
+            raw_data=str(
+                {
+                    "createdAt": "2022-02-01T01:59:18.547Z",
+                    "message": "Cashback criado com sucesso!",
+                    "id": "18",
+                    "document": "62208311361",
+                    "cashback": 150,
+                }
+            )
         )
 
     def test_product_model_has_information_fields(self):

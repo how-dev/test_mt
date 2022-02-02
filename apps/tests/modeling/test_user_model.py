@@ -15,7 +15,7 @@ class UserModelTest(TestCase):
             password=make_password("test"),
             document="06872098112",
             user_type="Interno MaisTODOS",
-            last_login=datetime.now()
+            last_login=datetime.now(),
         )
 
     def test_user_model_hasnt_default_fields(self):
@@ -38,4 +38,3 @@ class UserModelTest(TestCase):
     def test_user_model_has_datetime_fields(self):
         self.assertIsInstance(self.base_user.date_joined, datetime)
         self.assertIsInstance(self.base_user.last_login, datetime)
-

@@ -70,4 +70,3 @@ class BaseLogin(APIView):
         else:
             response = self.messages["failure"]
             return Response(**response)
-

@@ -35,10 +35,7 @@ class CashbackTest(APITestCase):
         cls.base_purchase = PurchaseModel.objects.create(
             sold_at=datetime.now(),
             total="100.0",
-            customer=CustomerModel.objects.create(
-                name="Test",
-                document="06872098112"
-            )
+            customer=CustomerModel.objects.create(name="Test", document="06872098112"),
         )
 
         cls.base_cashback = {
@@ -46,19 +43,10 @@ class CashbackTest(APITestCase):
             "path": "/api/v1/cashback/",
             "data": {
                 "sold_at": "2022-01-02 00:00:00",
-                "customer": {
-                   "document": "62208311361",
-                   "name": "Howard"
-                },
+                "customer": {"document": "62208311361", "name": "Howard"},
                 "total": "21474836470.00",
-                "products": [
-                   {
-                      "type": "C",
-                      "value": "10.00",
-                      "qty": 2147483647
-                   }
-                ]
-            }
+                "products": [{"type": "C", "value": "10.00", "qty": 2147483647}],
+            },
         }
 
         cls.base_200_cashback = {
@@ -66,19 +54,10 @@ class CashbackTest(APITestCase):
             "path": "/api/v1/cashback/",
             "data": {
                 "sold_at": "2022-01-02 00:00:00",
-                "customer": {
-                   "document": "62208311361",
-                   "name": "Howard"
-                },
+                "customer": {"document": "62208311361", "name": "Howard"},
                 "total": "200.00",
-                "products": [
-                   {
-                      "type": "C",
-                      "value": "200.00",
-                      "qty": 1
-                   }
-                ]
-            }
+                "products": [{"type": "C", "value": "200.00", "qty": 1}],
+            },
         }
 
         cls.base_100_cashback = {
@@ -86,19 +65,10 @@ class CashbackTest(APITestCase):
             "path": "/api/v1/cashback/",
             "data": {
                 "sold_at": "2022-01-02 00:00:00",
-                "customer": {
-                   "document": "62208311361",
-                   "name": "Howard"
-                },
+                "customer": {"document": "62208311361", "name": "Howard"},
                 "total": "100.00",
-                "products": [
-                   {
-                      "type": "C",
-                      "value": "100.00",
-                      "qty": 1
-                   }
-                ]
-            }
+                "products": [{"type": "C", "value": "100.00", "qty": 1}],
+            },
         }
 
         cls.base_50_cashback = {
@@ -106,19 +76,10 @@ class CashbackTest(APITestCase):
             "path": "/api/v1/cashback/",
             "data": {
                 "sold_at": "2022-01-02 00:00:00",
-                "customer": {
-                   "document": "62208311361",
-                   "name": "Howard"
-                },
+                "customer": {"document": "62208311361", "name": "Howard"},
                 "total": "50.00",
-                "products": [
-                   {
-                      "type": "C",
-                      "value": "50.00",
-                      "qty": 1
-                   }
-                ]
-            }
+                "products": [{"type": "C", "value": "50.00", "qty": 1}],
+            },
         }
 
         cls.base_0_cashback = {
@@ -126,19 +87,10 @@ class CashbackTest(APITestCase):
             "path": "/api/v1/cashback/",
             "data": {
                 "sold_at": "2022-01-02 00:00:00",
-                "customer": {
-                   "document": "62208311361",
-                   "name": "Howard"
-                },
+                "customer": {"document": "62208311361", "name": "Howard"},
                 "total": "25.00",
-                "products": [
-                   {
-                      "type": "C",
-                      "value": "25.00",
-                      "qty": 1
-                   }
-                ]
-            }
+                "products": [{"type": "C", "value": "25.00", "qty": 1}],
+            },
         }
 
         cls.retrieve_cashback = {
@@ -146,19 +98,10 @@ class CashbackTest(APITestCase):
             "path": "/api/v1/cashback/1/",
             "data": {
                 "sold_at": "2022-01-02 00:00:00",
-                "customer": {
-                   "document": "62208311361",
-                   "name": "Howard"
-                },
+                "customer": {"document": "62208311361", "name": "Howard"},
                 "total": "21474836470.00",
-                "products": [
-                   {
-                      "type": "C",
-                      "value": "10.00",
-                      "qty": 2147483647
-                   }
-                ]
-            }
+                "products": [{"type": "C", "value": "10.00", "qty": 2147483647}],
+            },
         }
 
         cls.invalid_total_cashback = {
@@ -166,19 +109,10 @@ class CashbackTest(APITestCase):
             "path": "/api/v1/cashback/",
             "data": {
                 "sold_at": "2022-01-02 00:00:00",
-                "customer": {
-                   "document": "62208311361",
-                   "name": "Howard"
-                },
+                "customer": {"document": "62208311361", "name": "Howard"},
                 "total": "21836470.00",
-                "products": [
-                   {
-                      "type": "C",
-                      "value": "10.00",
-                      "qty": 2147483647
-                   }
-                ]
-            }
+                "products": [{"type": "C", "value": "10.00", "qty": 2147483647}],
+            },
         }
 
         cls.invalid_date_cashback = {
@@ -186,19 +120,10 @@ class CashbackTest(APITestCase):
             "path": "/api/v1/cashback/",
             "data": {
                 "sold_at": "2200-01-02 00:00:00",
-                "customer": {
-                   "document": "62208311361",
-                   "name": "Howard"
-                },
+                "customer": {"document": "62208311361", "name": "Howard"},
                 "total": "21474836470.00",
-                "products": [
-                   {
-                      "type": "C",
-                      "value": "10.00",
-                      "qty": 2147483647
-                   }
-                ]
-            }
+                "products": [{"type": "C", "value": "10.00", "qty": 2147483647}],
+            },
         }
 
         cls.invalid_document_cashback = {
@@ -206,19 +131,10 @@ class CashbackTest(APITestCase):
             "path": "/api/v1/cashback/",
             "data": {
                 "sold_at": "2022-01-02 00:00:00",
-                "customer": {
-                   "document": "06872098111",
-                   "name": "Howard"
-                },
+                "customer": {"document": "06872098111", "name": "Howard"},
                 "total": "21474836470.00",
-                "products": [
-                   {
-                      "type": "C",
-                      "value": "10.00",
-                      "qty": 2147483647
-                   }
-                ]
-            }
+                "products": [{"type": "C", "value": "10.00", "qty": 2147483647}],
+            },
         }
 
         cls.invalid_body = {
@@ -227,14 +143,8 @@ class CashbackTest(APITestCase):
             "data": {
                 "sold_at": "2022-01-02 00:00:00",
                 "total": "21474836470.00",
-                "products": [
-                   {
-                      "type": "C",
-                      "value": "10.00",
-                      "qty": 2147483647
-                   }
-                ]
-            }
+                "products": [{"type": "C", "value": "10.00", "qty": 2147483647}],
+            },
         }
 
     def test_cant_GET_cashbacks_unauthenticated(self):

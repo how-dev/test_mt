@@ -13,7 +13,14 @@ class PurchaseValidation(BrazilianDocumentLogics):
         self.total = data["total"]
         self.products = data["products"]
         self.sold_at_data = data["sold_at"].replace(tzinfo=None)
-        self.sold_at = datetime.datetime(self.sold_at_data.year, self.sold_at_data.day, self.sold_at_data.month, self.sold_at_data.hour, self.sold_at_data.minute, self.sold_at_data.second)
+        self.sold_at = datetime.datetime(
+            self.sold_at_data.year,
+            self.sold_at_data.day,
+            self.sold_at_data.month,
+            self.sold_at_data.hour,
+            self.sold_at_data.minute,
+            self.sold_at_data.second,
+        )
         self.veriry_if_is_alright()
 
     has_error = False
@@ -83,13 +90,10 @@ class PurchaseValidation(BrazilianDocumentLogics):
             "url": env("MAISTODOS_CASHBACK"),
             "json": {
                 "document": self.get_document_value(),
-                "cashback": self.get_cashback_value()
+                "cashback": self.get_cashback_value(),
             },
-            "headers": {
-                "Content-Type": "application/json"
-            }
+            "headers": {"Content-Type": "application/json"},
         }
 
         response = requests.post(**data).json()
         return response
-

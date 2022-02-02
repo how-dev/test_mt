@@ -15,31 +15,22 @@ class LoginTest(APITestCase):
             email="test@email.com",
             password=make_password("test"),
             document="06872098112",
-            user_type="Interno MaisTODOS"
+            user_type="Interno MaisTODOS",
         )
 
         cls.invalid_credentials = {
             "path": "/api/v1/login/",
-            "data": {
-                "email": "invalid@invalid.com",
-                "password": "invalid"
-            }
+            "data": {"email": "invalid@invalid.com", "password": "invalid"},
         }
 
         cls.invalid_password_and_valid_email = {
             "path": "/api/v1/login/",
-            "data": {
-                "email": "test@email.com",
-                "password": "invalid"
-            }
+            "data": {"email": "test@email.com", "password": "invalid"},
         }
 
         cls.valid_credentials = {
             "path": "/api/v1/login/",
-            "data": {
-                "email": "test@email.com",
-                "password": "test"
-            }
+            "data": {"email": "test@email.com", "password": "test"},
         }
 
     def test_cant_login_with_invalid_credentials(self):
@@ -56,4 +47,3 @@ class LoginTest(APITestCase):
         response = self.client.post(**self.valid_credentials)
 
         self.assertEquals(response.status_code, status.HTTP_200_OK)
-

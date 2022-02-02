@@ -42,7 +42,7 @@ class UserModel(AbstractUser):
             ("Empresa X", "Empresa X"),
             ("Empresa Y", "Empresa Y"),
             ("Empresa Z", "Empresa Z"),
-        )
+        ),
     )
     email = models.EmailField(max_length=100, unique=True)
     name = models.CharField(max_length=100)
@@ -53,7 +53,7 @@ class UserModel(AbstractUser):
                 regex="^.{11}$", message="Length must to be 11", code="nomatch"
             )
         ],
-        unique=True
+        unique=True,
     )
 
     objects = UserManager()
@@ -70,5 +70,5 @@ class CustomerModel(models.Model):
             RegexValidator(
                 regex="^.{11}$", message="Length must to be 11", code="nomatch"
             )
-        ]
+        ],
     )

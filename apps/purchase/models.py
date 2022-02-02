@@ -5,12 +5,7 @@ from apps.user.models import CustomerModel
 
 class ProductsModel(models.Model):
     type = models.CharField(
-        max_length=255,
-        choices=(
-            ("A", "A"),
-            ("B", "B"),
-            ("C", "C")
-        )
+        max_length=255, choices=(("A", "A"), ("B", "B"), ("C", "C"))
     )
     value = models.CharField(max_length=255)
 

@@ -7,8 +7,7 @@ class CustomerModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.base_customer = CustomerModel.objects.create(
-            name="Test",
-            document="06872098112"
+            name="Test", document="06872098112"
         )
 
     def test_customer_model_has_information_fields(self):

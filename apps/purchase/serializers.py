@@ -8,11 +8,7 @@ from apps.user.serializers import CustomerSerializer
 class ProductsSerializer(ModelSerializer):
     class Meta:
         model = ProductsModel
-        fields = (
-            "type",
-            "value",
-            "qty"
-        )
+        fields = ("type", "value", "qty")
 
 
 class PurchaseSerializer(ModelSerializer):
@@ -21,12 +17,7 @@ class PurchaseSerializer(ModelSerializer):
 
     class Meta:
         model = PurchaseModel
-        fields = (
-            "sold_at",
-            "customer",
-            "total",
-            "products"
-        )
+        fields = ("sold_at", "customer", "total", "products")
 
     def create(self, validated_data):
         customer = validated_data["customer"]
