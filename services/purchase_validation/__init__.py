@@ -36,8 +36,8 @@ class PurchaseValidation(BrazilianDocumentLogics):
     def is_valid_date(self) -> bool:
         now = datetime.datetime.now()
 
-        days_diff = abs((now - self.sold_at).days)
-        return days_diff <= 0
+        days_diff = (now - self.sold_at).days
+        return days_diff >= 0
 
     def veriry_if_is_alright(self) -> None:
         errors = []
